@@ -1,0 +1,12 @@
+<uix type="Mod" index="[Mods.Toy.MeshEntity]">
+  <name>Collision Alert</name>
+  <add_menu_group>Physics</add_menu_group>
+
+  <affects>
+    <affect exclusive="true">RigidBody.CollisionModel</affect>
+  </affects>
+  <dependencies>
+    <dependency>Toy.MeshEntity.Physics</dependency>
+  </dependencies>
+
+</uix>

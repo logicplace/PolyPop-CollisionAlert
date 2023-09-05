@@ -1,0 +1,9 @@
+{
+    "name": "Collision Alert",
+    "author": "LogicPlace",
+    "description": "Raise an alert when an object collides with something.",
+    "category": "Alerts",
+    "url": "https://github.com/logicplace/PolyPop-CollisionAlert",
+    "version": "1.0",
+    "min_app_version": "1.0"
+}
