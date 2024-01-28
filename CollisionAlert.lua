@@ -1,10 +1,12 @@
 
 Instance.properties = properties({
+	{ name="Sensitivity", type="Real", value=0, range={min=0, max=3}, onUpdate="onInstanceUpdate" },
 	{ name="onCollision", type="Alert" }
 })
 
 Instance.collisionModel = nil
 Instance.resp = nil
+Instance.icd = nil
 
 function Instance:onInit()
 
@@ -14,9 +16,9 @@ function Instance:onInit()
 		self.collisionModel = getEditor():createNew(self:getParent():getObjectKit(), "CollisionModel")	
 	end
 
-	local icd = getEditor():createNew(self.collisionModel:getCollisionDetectors(), "ImpactCollisionDetector")
+	icd = getEditor():createNew(self.collisionModel:getCollisionDetectors(), "ImpactCollisionDetector")
 	icd:setName("AlertImpactCollisionDetector")
-	icd.threshold = 3
+	icd.threshold = 3.0
 
 	self.resp = getEditor():createNew(icd:getCollisionResponses(), "ScriptCollisionResponse",  getLocalFolder() .. "CollisionAlertModel.lua")
 	self.resp:setOnCollision(self.properties.onCollision)
@@ -30,6 +32,7 @@ end
 function Instance:onInstanceUpdate()
 	if (self:getParent():getInstance():getRigidBody()) then
 		self:getParent():getInstance():getRigidBody().collisionModel = self.collisionModel
+		icd.threshold = Instance.properties.Sensitivity
 	end
 end
 
