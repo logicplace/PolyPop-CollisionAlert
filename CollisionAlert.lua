@@ -1,6 +1,6 @@
 
 Instance.properties = properties({
-	{ name="Sensitivity", type="Real", value=0, range={min=0.0, max=3.0}, onUpdate="onInstanceUpdate" },
+	{ name="Sensitivity", type="Real", value=0.0, range={min=0.0, max=3.0}, onUpdate="onInstanceUpdate" },
 	{ name="onCollision", type="Alert" }
 })
 
